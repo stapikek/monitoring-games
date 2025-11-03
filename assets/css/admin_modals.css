@@ -1,0 +1,68 @@
+#globalMessageModal,
+#globalConfirmModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+#globalMessageModal > div,
+#globalConfirmModal > div {
+    background: var(--bg-secondary, white);
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    border: 1px solid var(--border-color, #e0e0e0);
+}
+
+#globalMessageModal h3,
+#globalConfirmModal h3 {
+    margin: 0 0 1rem 0;
+    color: var(--text-primary, #333);
+    font-size: 1.25rem;
+}
+
+#globalMessageModalText,
+#globalConfirmModalText {
+    margin: 0 0 1.5rem 0;
+    color: var(--text-secondary, #374151);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.modal-actions button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#globalMessageModalBtn {
+    color: white;
+}
+
+#globalConfirmModalNoBtn {
+    color: var(--text-primary, #333);
+    border: 1px solid var(--border-color, #e0e0e0);
+    background: var(--bg-tertiary, #f8f9fa);
+}
+
+#globalConfirmModalYesBtn {
+    color: white;
+    background: #ef4444;
+}
+
+

@@ -1,0 +1,109 @@
+/* ============================================
+   INDEX.PHP STYLES
+   ============================================ */
+
+.main-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .main-content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sidebar-section {
+        order: -1;
+    }
+}
+
+.random-project-widget {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    position: sticky;
+    top: 20px;
+}
+
+.random-project-widget h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.random-project-card {
+    margin-bottom: 1rem;
+}
+
+.random-project-logo {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background: var(--bg-primary);
+}
+
+.random-project-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.random-project-logo:hover img {
+    transform: scale(1.05);
+}
+
+.random-project-info h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.random-project-info h4 a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.random-project-info h4 a:hover {
+    color: #667eea;
+}
+
+.random-project-stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+}
+
+.random-project-description {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.no-project-message {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-tertiary);
+}
+
+.no-project-message p {
+    margin-bottom: 1rem;
+}
+

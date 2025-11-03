@@ -1,0 +1,147 @@
+/* Payment success page styles */
+
+.payment-status-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.payment-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.payment-icon.success {
+    color: #10b981;
+}
+
+.payment-icon.processing {
+    color: #06b6d4;
+}
+
+.payment-icon.failed {
+    color: #ef4444;
+}
+
+.payment-icon.waiting {
+    color: #f59e0b;
+}
+
+.payment-title {
+    margin-bottom: 1rem;
+}
+
+.payment-title.success {
+    color: #10b981;
+}
+
+.payment-title.processing {
+    color: #06b6d4;
+}
+
+.payment-title.failed {
+    color: #ef4444;
+}
+
+.payment-title.waiting {
+    color: #f59e0b;
+}
+
+.payment-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    margin: 1.5rem 0;
+}
+
+.payment-description {
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+.payment-details {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.payment-details p {
+    margin: 0.5rem 0;
+}
+
+.payment-details .detail-label {
+    font-weight: 600;
+}
+
+.payment-details .balance-value {
+    color: #10b981;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.payment-details code {
+    background: rgba(0,0,0,0.05);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.payment-actions {
+    margin-top: 2rem;
+}
+
+.payment-actions a {
+    margin-right: 1rem;
+}
+
+.payment-actions a:last-child {
+    margin-right: 0;
+}
+
+.payment-info-box {
+    background: #fee2e2;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.payment-info-box p {
+    margin: 0.5rem 0;
+}
+
+.payment-info-box code {
+    background: rgba(0,0,0,0.05);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.payment-auto-refresh {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+}
+
+[data-theme="dark"] .payment-status-container {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .payment-details {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .payment-details code {
+    background: rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] .payment-info-box {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+[data-theme="dark"] .payment-info-box code {
+    background: rgba(255,255,255,0.1);
+}
+
+

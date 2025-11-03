@@ -1,0 +1,198 @@
+/* Balance page styles */
+
+.balance-info {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #667eea;
+}
+
+.balance-info h3 {
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.balance-amount-display {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #28a745;
+    margin: 1rem 0;
+}
+
+.balance-help {
+    color: #666;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.balance-help a {
+    color: #667eea;
+    text-decoration: underline;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+}
+
+.amount-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.amount-btn {
+    padding: 1rem;
+    background: white;
+    border: 2px solid #667eea;
+    color: #667eea;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.amount-btn:hover {
+    background: #f8f9ff;
+    border-color: #5568d3;
+}
+
+.amount-btn .amount-value {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.amount-btn-popular {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: 2px solid #764ba2;
+    color: white;
+}
+
+.amount-btn-popular:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653d8e 100%);
+}
+
+.amount-btn-popular .amount-badge {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+.amount-btn-benefit {
+    background: white;
+    border: 2px solid #ffc107;
+    color: #333;
+}
+
+.amount-btn-benefit:hover {
+    background: #fff9e6;
+}
+
+.amount-btn-benefit .amount-badge {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.warning-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #fff3cd;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+}
+
+.warning-box h4 {
+    color: #856404;
+    margin-bottom: 0.5rem;
+}
+
+.warning-box p {
+    color: #856404;
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.warning-box a {
+    color: #856404;
+    text-decoration: underline;
+}
+
+.balance-form-wrapper {
+    max-width: 500px;
+}
+
+.form-group-balance {
+    margin-bottom: 1.5rem;
+}
+
+.form-group-balance label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group-balance input[type="number"],
+.form-group-balance select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group-balance input[type="number"] {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.form-group-balance .form-help {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+.payment-desc {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.btn-submit-balance {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.btn-spinner {
+    display: none;
+}
+
+[data-theme="dark"] .balance-info {
+    background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .amount-btn {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .amount-btn:hover {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .warning-box {
+    background: rgba(255, 193, 7, 0.1);
+    border-left-color: #f59e0b;
+}
+
+[data-theme="dark"] .warning-box h4,
+[data-theme="dark"] .warning-box p,
+[data-theme="dark"] .warning-box a {
+    color: #fbbf24;
+}
+
+

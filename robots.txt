@@ -1,0 +1,27 @@
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию админ-панели
+Disallow: /admin/
+
+# Запрещаем индексацию API
+Disallow: /api/
+
+# Запрещаем индексацию системных файлов
+Disallow: /config/
+Disallow: /uploads/
+Disallow: /includes/
+
+# Запрещаем индексацию приватных страниц
+Disallow: /profile.php
+Disallow: /add_server.php
+Disallow: /edit_server.php
+Disallow: /add_project.php
+Disallow: /edit_project.php
+Disallow: /balance.php
+Disallow: /logout.php
+Disallow: /steam_auth.php
+
+# Sitemap
+# Sitemap генерируется динамически на основе текущего домена
+

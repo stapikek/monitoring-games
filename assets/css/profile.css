@@ -1,0 +1,121 @@
+/* Profile page styles */
+
+.steam-linked {
+    color: #27ae60;
+}
+
+.steam-unlinked {
+    color: #999;
+}
+
+.btn-steam-wrapper {
+    margin-top: 0.5rem;
+    display: inline-block;
+}
+
+.steam-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+.section-title-spacing {
+    margin-top: 2rem;
+}
+
+.section-actions {
+    margin-bottom: 2rem;
+}
+
+.empty-state {
+    padding: 2rem;
+    text-align: center;
+    grid-column: 1 / -1;
+}
+
+.empty-state-action {
+    margin-top: 1rem;
+}
+
+.profile-servers-table {
+    margin-bottom: 2rem;
+}
+
+.table-empty-state {
+    padding: 2rem;
+    text-align: center;
+}
+
+.table-empty-action {
+    margin-top: 1rem;
+}
+
+.btn-edit-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.account-settings-group {
+    margin-top: 1rem;
+}
+
+.steam-setting-item {
+    margin-bottom: 1rem;
+}
+
+.steam-linked-badge {
+    color: #27ae60;
+    margin-left: 0.5rem;
+}
+
+.steam-id-badge {
+    color: #666;
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.btn-steam-inline {
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+.security-group {
+    margin-top: 1rem;
+}
+
+.security-item {
+    margin-bottom: 0.5rem;
+}
+
+.security-badge {
+    color: #27ae60;
+    margin-left: 0.5rem;
+}
+
+.security-note {
+    color: #999;
+    font-size: 0.875rem;
+}
+
+.notifications-note {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.875rem;
+}
+
+[data-theme="dark"] .steam-linked,
+[data-theme="dark"] .steam-linked-badge,
+[data-theme="dark"] .security-badge {
+    color: #10b981;
+}
+
+[data-theme="dark"] .steam-unlinked,
+[data-theme="dark"] .steam-id-badge,
+[data-theme="dark"] .security-note,
+[data-theme="dark"] .notifications-note {
+    color: #94a3b8;
+}
+
+

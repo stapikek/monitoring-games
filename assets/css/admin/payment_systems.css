@@ -1,0 +1,115 @@
+.badge {
+    padding: 0.25rem 0.75rem;
+    background: #f1f5f9;
+    color: #475569;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.status-on {
+    color: #10b981;
+    margin-left: 0.5rem;
+}
+
+.status-off {
+    color: #ef4444;
+    margin-left: 0.5rem;
+}
+
+.form-actions {
+    margin-top: 1.5rem;
+}
+
+.btn-settings {
+    padding: 0.5rem 1rem;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.btn-settings:hover {
+    background: #5568d3;
+}
+
+#settingsModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+#settingsModal > div {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#settingsModal h3 {
+    margin: 0 0 1rem 0;
+    color: #1e293b;
+    font-size: 1.25rem;
+}
+
+.modal-form-group {
+    margin: 1rem 0;
+}
+
+.modal-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.modal-form-group input[type="text"],
+.modal-form-group input[type="url"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.modal-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.modal-actions button {
+    padding: 0.625rem 1.25rem;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal-actions button.btn-primary {
+    border: none;
+}
+
+.modal-actions button.btn-primary:hover {
+    opacity: 0.9;
+}
+
+

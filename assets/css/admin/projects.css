@@ -1,0 +1,60 @@
+.admin-filters {
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.admin-filters a {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 2px solid #ddd;
+    text-decoration: none;
+    color: #333;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.admin-filters a:hover,
+.admin-filters a.active {
+    border-color: #667eea;
+    color: #667eea;
+    background: #f8f9ff;
+}
+
+.status-pending {
+    color: #ffc107;
+    font-weight: 600;
+}
+
+.status-active {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.status-rejected {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    border: none;
+}
+
+
