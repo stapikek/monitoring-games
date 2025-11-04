@@ -224,9 +224,7 @@
     gap: 0.5rem;
 }
 
-.vote-button-large:hover {
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
+
 
 .quick-info-item {
     display: flex;
@@ -301,9 +299,7 @@
     margin-top: 1rem;
 }
 
-.copy-button:hover {
-    background: #f8f9ff;
-}
+
 
 .detail-value-warning {
     color: #ffc107;
@@ -327,9 +323,7 @@
     background: #0077FF;
 }
 
-.social-button:hover {
-    opacity: 0.9;
-}
+
 
 .section-divider {
     margin-top: 2rem;
@@ -358,9 +352,7 @@
     font-weight: 600;
 }
 
-.edit-server-button:hover {
-    background: #5568d3;
-}
+
 
 .back-link {
     margin-top: 2rem;

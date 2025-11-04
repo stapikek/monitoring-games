@@ -112,10 +112,6 @@
     border: none;
 }
 
-.btn-visit-site:hover {
-    background: #5568d3;
-}
-
 .btn-details {
     background: #6c757d;
     color: white;
@@ -123,12 +119,7 @@
     border-radius: 6px;
     text-decoration: none;
     display: inline-block;
-    transition: background 0.3s;
     border: none;
-}
-
-.btn-details:hover {
-    background: #545b62;
 }
 
 @media (max-width: 768px) {

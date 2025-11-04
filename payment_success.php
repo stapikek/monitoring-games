@@ -21,7 +21,7 @@ if ($payment_id <= 0) {
 
 // Получаем информацию о платеже
 try {
-    $payment_stmt = $db->prepare("SELECT p.*, ps.name as payment_system_name, ps.type as payment_system_type
+    $payment_stmt = $db->prepare("SELECT p.*, ps.name as payment_system_name, ps.type as payment_system_type, ps.settings as payment_system_settings
                                    FROM payments p
                                    LEFT JOIN payment_systems ps ON p.payment_system_id = ps.id
                                    WHERE p.id = :id AND p.user_id = :user_id LIMIT 1");
@@ -33,6 +33,37 @@ try {
     if (!$payment) {
         header("Location: /balance.php?error=payment_not_found");
         exit;
+    }
+    
+    // Если платеж еще не завершен, проверяем статус через API платежной системы
+    if ($payment['status'] == 'pending' || $payment['status'] == 'processing') {
+        $settings = json_decode($payment['payment_system_settings'] ?? '{}', true);
+        
+        // Проверяем статус через API (для ЮKassa, Stripe, PayPal)
+        switch ($payment['payment_system_type']) {
+            case 'yookassa':
+                require_once __DIR__ . '/api/payment_gateways/yookassa_webhook.php';
+                YooKassaWebhook::checkPaymentStatus($db, $payment_id, $settings);
+                break;
+                
+            case 'stripe':
+                if (isset($_GET['session_id'])) {
+                    require_once __DIR__ . '/api/payment_gateways/stripe_webhook.php';
+                    StripeWebhook::checkSessionStatus($db, $payment_id, $_GET['session_id'], $settings);
+                }
+                break;
+                
+            case 'paypal':
+                if (isset($_GET['token'])) {
+                    require_once __DIR__ . '/api/payment_gateways/paypal_webhook.php';
+                    PayPalWebhook::captureOrder($db, $payment_id, $_GET['token'], $settings);
+                }
+                break;
+        }
+        
+        // Обновляем данные платежа
+        $payment_stmt->execute();
+        $payment = $payment_stmt->fetch();
     }
     
     // Получаем текущий баланс

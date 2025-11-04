@@ -32,15 +32,87 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if ($action === 'save_settings' && !empty($_POST['system_id'])) {
         $systemId = intval($_POST['system_id']);
-        $settings = json_encode([
-            'api_key' => trim($_POST['api_key'] ?? ''),
-            'secret_key' => trim($_POST['secret_key'] ?? ''),
-            'merchant_id' => trim($_POST['merchant_id'] ?? ''),
-            'webhook_url' => trim($_POST['webhook_url'] ?? '')
-        ]);
+        
+        // Получаем тип платежной системы для определения необходимых полей
+        $stmt = $db->prepare("SELECT type FROM payment_systems WHERE id = :id");
+        $stmt->bindParam(':id', $systemId);
+        $stmt->execute();
+        $system = $stmt->fetch();
+        
+        if (!$system) {
+            header('Location: /admin/payment_systems.php?error=system_not_found');
+            exit;
+        }
+        
+        $type = $system['type'];
+        $settings = [];
+        
+        // Определяем поля в зависимости от типа платежной системы
+        switch ($type) {
+            case 'freekassa':
+                $settings = [
+                    'merchant_id' => trim($_POST['merchant_id'] ?? ''),
+                    'secret_key' => trim($_POST['secret_key'] ?? ''),
+                    'secret_key2' => trim($_POST['secret_key2'] ?? ''),
+                    'shop_id' => trim($_POST['shop_id'] ?? '')
+                ];
+                break;
+                
+            case 'yookassa':
+                $settings = [
+                    'shop_id' => trim($_POST['shop_id'] ?? ''),
+                    'secret_key' => trim($_POST['secret_key'] ?? ''),
+                    'webhook_url' => trim($_POST['webhook_url'] ?? '')
+                ];
+                break;
+                
+            case 'stripe':
+                $settings = [
+                    'publishable_key' => trim($_POST['publishable_key'] ?? ''),
+                    'secret_key' => trim($_POST['secret_key'] ?? ''),
+                    'webhook_secret' => trim($_POST['webhook_secret'] ?? '')
+                ];
+                break;
+                
+            case 'paypal':
+                $settings = [
+                    'client_id' => trim($_POST['client_id'] ?? ''),
+                    'client_secret' => trim($_POST['client_secret'] ?? ''),
+                    'mode' => trim($_POST['mode'] ?? 'sandbox')
+                ];
+                break;
+                
+            case 'crypto':
+                $settings = [
+                    'api_key' => trim($_POST['api_key'] ?? ''),
+                    'wallet_address' => trim($_POST['wallet_address'] ?? ''),
+                    'network' => trim($_POST['network'] ?? 'bitcoin')
+                ];
+                break;
+                
+            case 'bank_transfer':
+                $settings = [
+                    'account_number' => trim($_POST['account_number'] ?? ''),
+                    'bank_name' => trim($_POST['bank_name'] ?? ''),
+                    'inn' => trim($_POST['inn'] ?? ''),
+                    'bik' => trim($_POST['bik'] ?? ''),
+                    'recipient_name' => trim($_POST['recipient_name'] ?? '')
+                ];
+                break;
+                
+            default:
+                $settings = [
+                    'api_key' => trim($_POST['api_key'] ?? ''),
+                    'secret_key' => trim($_POST['secret_key'] ?? ''),
+                    'merchant_id' => trim($_POST['merchant_id'] ?? ''),
+                    'webhook_url' => trim($_POST['webhook_url'] ?? '')
+                ];
+        }
+        
+        $settingsJson = json_encode($settings, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
         
         $stmt = $db->prepare("UPDATE payment_systems SET settings = :settings WHERE id = :id");
-        $stmt->bindParam(':settings', $settings);
+        $stmt->bindParam(':settings', $settingsJson);
         $stmt->bindParam(':id', $systemId);
         $stmt->execute();
     }
@@ -49,8 +121,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
-// Получаем список платежных систем
-$stmt = $db->query("SELECT * FROM payment_systems ORDER BY name");
+// Получаем список платежных систем с типом
+$stmt = $db->query("SELECT id, name, type, enabled, is_default, settings FROM payment_systems ORDER BY name");
 $payment_systems = $stmt->fetchAll();
 
 $additional_css = ['/assets/css/admin/payment_systems.css'];
@@ -94,7 +166,7 @@ require_once __DIR__ . '/includes/admin_header.php';
                     <?php endif; ?>
                 </td>
                 <td>
-                    <button type="button" class="btn-settings" onclick="showSettings(<?php echo $ps['id']; ?>, '<?php echo htmlspecialchars(addslashes($ps['name'])); ?>', <?php echo htmlspecialchars(json_encode($settings)); ?>)">
+                    <button type="button" class="btn-settings" onclick="showSettings(<?php echo $ps['id']; ?>, '<?php echo htmlspecialchars(addslashes($ps['name'])); ?>', '<?php echo htmlspecialchars($ps['type']); ?>', <?php echo htmlspecialchars(json_encode($settings, JSON_UNESCAPED_UNICODE)); ?>)">
                         Настроить
                     </button>
                 </td>
@@ -117,25 +189,8 @@ require_once __DIR__ . '/includes/admin_header.php';
             <input type="hidden" name="action" value="save_settings">
             <input type="hidden" name="system_id" id="modalSystemId">
             
-            <div class="modal-form-group">
-                <label>API Key:</label>
-                <input type="text" name="api_key" id="modalApiKey">
-            </div>
-            
-            <div class="modal-form-group">
-                <label>Secret Key:</label>
-                <input type="text" name="secret_key" id="modalSecretKey">
-            </div>
-            
-            <div class="modal-form-group">
-                <label>Merchant ID:</label>
-                <input type="text" name="merchant_id" id="modalMerchantId">
-            </div>
-            
-            <div class="modal-form-group">
-                <label>Webhook URL:</label>
-                <input type="text" name="webhook_url" id="modalWebhookUrl" placeholder="https://domen.pw/api/payment/webhook/">
-            </div>
+            <!-- Поля будут динамически добавлены через JavaScript -->
+            <div id="settingsFields"></div>
             
             <div class="modal-actions">
                 <button type="submit" class="btn-primary">Сохранить</button>

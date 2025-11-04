@@ -59,42 +59,11 @@ try {
                     header("Location: /?steam_login=1");
                     exit;
                 } else {
-                    // Пользователь не существует - регистрируем
-                    // Получаем имя пользователя из Steam API (если нужно, можно добавить)
-                    $username = "SteamUser_" . substr($steamId, -6);
-                    
-                    // Проверяем уникальность имени
-                    $check_stmt = $db->prepare("SELECT id FROM users WHERE username = :username LIMIT 1");
-                    $check_stmt->bindParam(":username", $username);
-                    $check_stmt->execute();
-                    
-                    if ($check_stmt->rowCount() > 0) {
-                        $counter = 1;
-                        $original_username = $username;
-                        do {
-                            $username = $original_username . "_" . $counter;
-                            $check_stmt = $db->prepare("SELECT id FROM users WHERE username = :username LIMIT 1");
-                            $check_stmt->bindParam(":username", $username);
-                            $check_stmt->execute();
-                            $counter++;
-                        } while ($check_stmt->rowCount() > 0 && $counter < 1000);
-                    }
-                    
-                    // Регистрируем нового пользователя
-                    $new_user_id = $auth->registerSteamUser($steamId, $username);
-                    
-                    if ($new_user_id) {
-                        // Автоматически логиним
-                        $_SESSION['user_id'] = $new_user_id;
-                        $_SESSION['username'] = $username;
-                        error_log("Steam Auth: Successfully registered and logged in Steam ID " . $steamId);
-                        header("Location: /?steam_login=1");
-                        exit;
-                    } else {
-                        error_log("Steam Auth: Failed to register Steam ID " . $steamId);
-                        header("Location: /login.php?steam_error=1");
-                        exit;
-                    }
+                    // Пользователь не существует - сохраняем Steam ID в сессии для ввода email
+                    $_SESSION['steam_register_id'] = $steamId;
+                    error_log("Steam Auth: New user, redirecting to email form. Steam ID: " . $steamId);
+                    header("Location: /steam_register.php");
+                    exit;
                 }
             }
         } else {

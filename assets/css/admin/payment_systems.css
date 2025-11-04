@@ -1,7 +1,7 @@
 .badge {
     padding: 0.25rem 0.75rem;
-    background: #f1f5f9;
-    color: #475569;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
     border-radius: 12px;
     font-size: 0.875rem;
     font-weight: 500;
@@ -9,8 +9,10 @@
 
 .status-select {
     padding: 0.5rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .status-on {
@@ -35,11 +37,6 @@
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.875rem;
-    transition: all 0.2s;
-}
-
-.btn-settings:hover {
-    background: #5568d3;
 }
 
 #settingsModal {
@@ -56,18 +53,19 @@
 }
 
 #settingsModal > div {
-    background: white;
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 12px;
     max-width: 600px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
+    border: 1px solid var(--border-color);
 }
 
 #settingsModal h3 {
     margin: 0 0 1rem 0;
-    color: #1e293b;
+    color: var(--text-primary);
     font-size: 1.25rem;
 }
 
@@ -79,15 +77,37 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #475569;
+    color: var(--text-secondary);
 }
 
 .modal-form-group input[type="text"],
-.modal-form-group input[type="url"] {
+.modal-form-group input[type="password"],
+.modal-form-group input[type="url"],
+.modal-form-group select {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    box-sizing: border-box;
+}
+
+.modal-form-group input:focus,
+.modal-form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.modal-form-group small,
+.modal-form-group .form-help {
+    display: block;
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+    line-height: 1.4;
 }
 
 .modal-actions {
@@ -98,18 +118,19 @@
 
 .modal-actions button {
     padding: 0.625rem 1.25rem;
-    border: 1px solid #ddd;
-    background: white;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     border-radius: 6px;
     cursor: pointer;
 }
 
 .modal-actions button.btn-primary {
     border: none;
+    background: #667eea;
+    color: white;
 }
 
-.modal-actions button.btn-primary:hover {
-    opacity: 0.9;
-}
+
 
 

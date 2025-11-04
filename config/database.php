@@ -3,9 +3,9 @@
 
 class Database {
     private $host = "localhost";
-    private $db_name = "monitoring";
-    private $username = "your_username";
-    private $password = "your_password";
+    private $db_name = "db";
+    private $username = "user";
+    private $password = "password";
     public $conn;
     
     public function getConnection() {
@@ -183,5 +183,3 @@ class Database {
         exit;
     }
 }
-
-

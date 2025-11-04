@@ -170,7 +170,7 @@ class Auth {
     /**
      * Регистрация нового пользователя через Steam
      */
-    public function registerSteamUser($steamId, $username) {
+    public function registerSteamUser($steamId, $username, $email) {
         try {
             // Проверяем, не существует ли уже пользователь с таким Steam ID
             $stmt = $this->db->prepare("SELECT id FROM users WHERE steam_id = :steam_id LIMIT 1");
@@ -182,10 +182,7 @@ class Auth {
                 return false;
             }
             
-            // Создаем временный email для Steam пользователя
-            $email = "steam_{$steamId}@temp.local";
-            
-            // Регистрируем пользователя
+            // Регистрируем пользователя с указанным email
             $stmt = $this->db->prepare("
                 INSERT INTO users (username, email, steam_id, created_at) 
                 VALUES (:username, :email, :steam_id, NOW())

@@ -10,10 +10,22 @@
     border: 1px solid #c3e6cb;
 }
 
+[data-theme="dark"] .alert-success {
+    background: #1e3a2e;
+    color: #86efac;
+    border-color: #16a34a;
+}
+
 .alert-error {
     background: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
+}
+
+[data-theme="dark"] .alert-error {
+    background: #3a1e1e;
+    color: #fca5a5;
+    border-color: #dc2626;
 }
 
 .form-grid {
@@ -29,7 +41,7 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #475569;
+    color: var(--text-secondary);
 }
 
 .form-group input[type="text"],
@@ -37,14 +49,17 @@
 .form-group small {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .form-group small {
-    color: #64748b;
+    color: var(--text-tertiary);
     padding: 0;
     border: none;
+    background: transparent;
 }
 
 #editModal {
@@ -61,16 +76,17 @@
 }
 
 #editModal > div {
-    background: white;
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 12px;
     max-width: 600px;
     width: 90%;
+    border: 1px solid var(--border-color);
 }
 
 #editModal h3 {
     margin: 0 0 1rem 0;
-    color: #1e293b;
+    color: var(--text-primary);
     font-size: 1.125rem;
 }
 
@@ -82,21 +98,24 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #475569;
+    color: var(--text-secondary);
 }
 
 .modal-form-group input[type="text"],
 .modal-form-group input[type="url"] {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .modal-form-group small {
-    color: #64748b;
+    color: var(--text-tertiary);
     padding: 0;
     border: none;
+    background: transparent;
 }
 
 .modal-actions {
@@ -108,8 +127,9 @@
 
 .modal-actions button {
     padding: 0.625rem 1.25rem;
-    border: 1px solid #ddd;
-    background: white;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     border-radius: 6px;
     cursor: pointer;
 }
@@ -123,14 +143,14 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    color: #475569;
+    color: var(--text-secondary);
 }
 
 .image-preview img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
 }
 
 .btn-edit {
@@ -145,16 +165,14 @@
     margin-right: 0.5rem;
 }
 
-.btn-edit:hover {
-    background: #5568d3;
-}
+
 
 .map-preview-img {
     width: 80px;
     height: 45px;
     object-fit: cover;
     border-radius: 4px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
 }
 
 .map-preview-placeholder {
@@ -176,6 +194,7 @@
 
 .map-name-cell {
     font-weight: 600;
+    color: var(--text-primary);
 }
 
 .map-code-cell {
@@ -194,7 +213,7 @@
 }
 
 .empty-image-text {
-    color: #999;
+    color: var(--text-tertiary);
     font-size: 0.875rem;
 }
 

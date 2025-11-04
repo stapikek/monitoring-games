@@ -11,8 +11,10 @@
 .form-add-field input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .action-buttons-wrapper {
@@ -27,7 +29,7 @@
 }
 
 .empty-icon-text {
-    color: #999;
+    color: var(--text-tertiary);
     font-size: 12px;
 }
 
@@ -49,16 +51,17 @@
 }
 
 #editModal > div {
-    background: white;
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 12px;
     max-width: 500px;
     width: 90%;
+    border: 1px solid var(--border-color);
 }
 
 #editModal h3 {
     margin: 0 0 1rem 0;
-    color: #1e293b;
+    color: var(--text-primary);
     font-size: 1.125rem;
 }
 
@@ -67,8 +70,10 @@
     width: 100%;
     padding: 0.75rem;
     margin: 1rem 0;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .modal-actions {
@@ -79,8 +84,9 @@
 
 .modal-actions button {
     padding: 0.625rem 1.25rem;
-    border: 1px solid #ddd;
-    background: white;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
     border-radius: 6px;
     cursor: pointer;
 }
@@ -96,8 +102,6 @@
     transition: all 0.2s;
 }
 
-.btn-edit:hover {
-    background: #5568d3;
-}
+
 
 

@@ -46,11 +46,7 @@
     transition: all 0.3s ease;
 }
 
-.project-info-block .btn:hover {
-    background: var(--bg-tertiary);
-    color: #667eea;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
+
 
 /* Форма */
 .project-form {
@@ -192,18 +188,9 @@ textarea.form-control {
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
 }
 
-.form-actions .btn-success:hover {
-    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
-}
-
 .form-actions .btn-secondary {
     background: #f3f4f6;
     color: var(--text-tertiary);
-}
-
-.form-actions .btn-secondary:hover {
-    background: #e5e7eb;
-    color: var(--text-secondary);
 }
 
 /* Адаптивность */

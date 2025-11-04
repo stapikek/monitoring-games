@@ -1,14 +1,14 @@
 .admin-settings {
-    background: white;
+    background: var(--bg-secondary);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px var(--shadow-light);
     margin-bottom: 2rem;
 }
 
 .admin-settings h2 {
     margin: 0 0 1.5rem 0;
-    color: #1e293b;
+    color: var(--text-primary);
     font-size: 1.5rem;
 }
 
@@ -20,19 +20,22 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
+    color: var(--text-secondary);
 }
 
 .admin-settings .form-control {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
 }
 
 .admin-settings .form-help {
     margin-top: 0.5rem;
-    color: #666;
+    color: var(--text-tertiary);
     font-size: 0.875rem;
 }
 
@@ -54,12 +57,12 @@
 .cache-section {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--border-color);
 }
 
 .cache-section h3 {
     margin: 0 0 1rem 0;
-    color: #1f2937;
+    color: var(--text-primary);
     font-size: 1rem;
 }
 
@@ -69,7 +72,7 @@
 
 .cache-help {
     margin-top: 0.75rem;
-    color: #666;
+    color: var(--text-tertiary);
     font-size: 0.875rem;
 }
 
@@ -81,34 +84,83 @@
 }
 
 .stat-card {
-    background: white;
+    background: var(--bg-secondary);
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px var(--shadow-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.stat-card.primary {
+    border-left: 4px solid #667eea;
+}
+
+.stat-card.warning {
+    border-left: 4px solid #f59e0b;
+}
+
+.stat-card.success {
+    border-left: 4px solid #10b981;
+}
+
+.stat-card.info {
+    border-left: 4px solid #3b82f6;
+}
+
+.stat-card.vip {
+    border-left: 4px solid #8b5cf6;
+}
+
+.stat-card.rating {
+    border-left: 4px solid #8b5cf6;
+}
+
+.stat-card.players {
+    border-left: 4px solid #06b6d4;
+}
+
+.stat-card.steam {
+    border-left: 4px solid #171a21;
+}
+
+[data-theme="dark"] .stat-card.steam {
+    border-left-color: #06b6d4;
 }
 
 .stat-info {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.stat-value {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e293b;
-}
-
-.stat-title {
+.stat-info h3 {
     font-size: 0.875rem;
-    color: #64748b;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+    margin: 0.25rem 0;
 }
 
 .stat-subtitle {
     font-size: 0.8125rem;
-    color: #94a3b8;
+    color: var(--text-tertiary);
     margin-top: 0.25rem;
+    line-height: 1.4;
 }
 
 .quick-actions {
@@ -118,6 +170,7 @@
 .quick-actions h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    color: var(--text-primary);
 }
 
 .action-buttons {
@@ -136,12 +189,12 @@
     justify-content: center;
     gap: 0.5rem;
     transition: all 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px var(--shadow-light);
 }
 
 .action-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 12px var(--shadow-medium);
 }
 
 .action-btn.primary {
@@ -175,35 +228,40 @@
 .admin-section h2 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
+    color: var(--text-primary);
 }
 
 .data-table {
     width: 100%;
-    background: white;
+    background: var(--bg-secondary);
     border-collapse: collapse;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 2px 8px var(--shadow-light);
 }
 
 .data-table thead {
-    background: #f8f9fa;
+    background: var(--bg-tertiary);
 }
 
 .data-table th,
 .data-table td {
     padding: 1rem;
     text-align: left;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .data-table th {
     font-weight: 600;
-    color: #475569;
+    color: var(--text-secondary);
+}
+
+.data-table td {
+    color: var(--text-secondary);
 }
 
 .data-table tbody tr:hover {
-    background: #f8f9ff;
+    background: var(--bg-tertiary);
 }
 
 .view-all-link {
@@ -237,8 +295,6 @@
     color: white;
 }
 
-.btn-small:hover {
-    opacity: 0.9;
-}
+
 
 

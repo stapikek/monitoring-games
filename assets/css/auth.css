@@ -6,6 +6,19 @@
     margin: 2rem auto;
 }
 
+.form-container h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.form-description {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
 /* Divider between form and steam auth */
 .auth-divider {
     margin: 1.5rem 0;
@@ -70,11 +83,7 @@
     box-shadow: 0 2px 8px rgba(27, 40, 56, 0.3);
 }
 
-.btn-steam:hover {
-    background: linear-gradient(135deg, #1b2838 0%, #1e3a5f 100%);
-    box-shadow: 0 4px 12px rgba(27, 40, 56, 0.4);
-    transform: translateY(-1px);
-}
+
 
 .btn-steam svg {
     width: 20px;

@@ -49,10 +49,10 @@ function addBalance(event) {
         return;
     }
     
-    if (typeof showGlobalMessage === 'function') {
-        // Продолжаем без подтверждения
-    } else if (!confirm('Пополнить баланс на ' + amount.toFixed(2) + ' ₽?')) {
-        return;
+    if (typeof showGlobalMessage !== 'function') {
+        if (!confirm('Пополнить баланс на ' + amount.toFixed(2) + ' ₽?')) {
+            return;
+        }
     }
     
     var btnText = document.getElementById('balance-btn-text');

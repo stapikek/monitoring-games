@@ -209,8 +209,21 @@ if ($auth->isLoggedIn()) {
                             </div>
                         </li>
                     <?php else: ?>
-                        <li><a href="/login.php">Войти</a></li>
-                        <li><a href="/register.php">Регистрация</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                Войти / Регистрация
+                            </a>
+                            <div class="dropdown-menu">
+                                <ul class="dropdown-items">
+                                    <li><a href="/login.php">Войти</a></li>
+                                    <li><a href="/register.php">Регистрация</a></li>
+                                    <li class="dropdown-divider"></li>
+                                    <li><a href="/steam_auth.php" class="btn-steam-dropdown">
+                                        Войти через Steam
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </li>
                     <?php endif; ?>
                 </ul>
             </div>

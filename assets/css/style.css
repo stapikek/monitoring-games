@@ -404,6 +404,31 @@ nav {
     margin: 0.75rem 0;
 }
 
+/* Steam button in dropdown */
+.btn-steam-dropdown {
+    display: block !important;
+    text-align: center;
+    background: linear-gradient(135deg, #171a21 0%, #1b2838 100%) !important;
+    color: white !important;
+    padding: 0.875rem 1.5rem !important;
+    margin: 0.5rem 1.5rem !important;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(27, 40, 56, 0.3);
+}
+
+.btn-steam-dropdown::before {
+    display: none !important;
+}
+
+.btn-steam-dropdown:hover {
+    background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%) !important;
+    box-shadow: 0 4px 12px rgba(27, 40, 56, 0.4);
+    transform: translateY(-1px);
+}
+
 /* Кнопки */
 .btn {
     display: inline-block;
@@ -426,19 +451,9 @@ nav {
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
-.btn-primary:hover {
-    background: linear-gradient(135deg, #5568d3 0%, #6a3d93 100%);
-    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
-}
-
 .btn-success {
     background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
     box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
-}
-
-.btn-success:hover {
-    background: linear-gradient(135deg, #218838 0%, #1ea67d 100%);
-    box-shadow: 0 6px 16px rgba(40, 167, 69, 0.4);
 }
 
 /* Формы */
@@ -1332,10 +1347,7 @@ footer {
     font-size: 1rem;
 }
 
-.btn-balance:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    background: var(--bg-tertiary);
-}
+
 
 /* Projects Grid */
 .projects-grid {
@@ -1458,10 +1470,7 @@ footer {
     box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
 }
 
-.btn-warning:hover {
-    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
-}
+
 
 /* Status Badges */
 .status-badge {
