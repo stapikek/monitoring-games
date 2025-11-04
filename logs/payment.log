@@ -1,3 +1,0 @@
-[2025-11-04 20:05:12] [payment] User: 2 (stapi) | IP: 213.24.135.160 | Message: Payment created | Context: {"payment_id":"4","user_id":"2","amount":"100","payment_system":"yookassa"}
-[2025-11-04 20:05:54] [payment] User: 2 (stapi) | IP: 213.24.135.160 | Message: Payment created | Context: {"payment_id":"5","user_id":"2","amount":"100","payment_system":"stripe"}
-[2025-11-04 20:09:06] [payment] User: 2 (stapi) | IP: 213.24.135.160 | Message: Payment created | Context: {"payment_id":"6","user_id":"2","amount":"100","payment_system":"yookassa"}
